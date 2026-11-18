@@ -2,7 +2,9 @@ name: Vinted-Artikel aktualisieren
 
 on:
   schedule:
-    - cron: "0 5 * * *" # täglich 05:00 UTC (6/7 Uhr deutscher Zeit)
+    # 6, 14, 18, 21 Uhr deutscher Zeit. Cron läuft in UTC, darum je zwei Stunden:
+    # Winter (MEZ = UTC+1) und Sommer (MESZ = UTC+2). Der Extra-Lauf ändert nichts.
+    - cron: "0 4,5,12,13,16,17,19,20 * * *"
   workflow_dispatch: # Button "Run workflow" für manuellen Abruf
 
 permissions:

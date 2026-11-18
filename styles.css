@@ -740,7 +740,7 @@ body::after {
 @media (max-width: 1180px) {
   .chapter-rail { display: none; }
   .hero, .worth, .process-inner, .drops, .stories, .about { padding-left: var(--gutter); }
-  .nav { display: none; }
+  .nav a:not(.nav-shop) { display: none; } /* schmal: nur Shop bleibt sichtbar */
 }
 @media (max-width: 960px) {
   .hero { grid-template-columns: 1fr; padding-top: 110px; gap: 3rem; }

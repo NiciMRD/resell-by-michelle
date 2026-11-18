@@ -4,7 +4,7 @@
   <style>
     #rbm-shop { --bg:#fbf7f2; --card:#fffdfa; --ink:#38231d; --ink2:#5a3f35; --mute:#a8968a; --line:#e6dbd1; --sand:#efe2d6; --blush:#e8d3c8; --accent:#a37f72; --sage:#8a9a7b;
       --serif:"Bodoni Moda",Didot,"Bodoni 72",Georgia,serif; --ease:cubic-bezier(.22,.8,.2,1);
-      max-width:1320px; margin:0 auto; padding:1rem 1rem 3rem; color:var(--ink); font-family:inherit; text-align:left; box-sizing:border-box; }
+      max-width:1320px; margin:0 auto; padding:1rem 1rem 3rem; color:var(--ink); font-family:"Inter Tight",-apple-system,"Helvetica Neue",Arial,sans-serif; line-height:1.5; text-align:left; box-sizing:border-box; }
     #rbm-shop *, #rbm-shop *::before, #rbm-shop *::after { box-sizing:border-box; }
 
     /* Vertrauensleiste */
@@ -191,6 +191,8 @@
         li.style.transitionDelay = Math.min(k, 8) * 60 + "ms";
         if (io) io.observe(li); else li.classList.add("rbm-in");
       });
+      // Rückfall: Falls der Observer nicht feuert (z. B. im Editor-Iframe), Karten trotzdem zeigen
+      setTimeout(function () { if (!grid.querySelector(".rbm-in")) [].forEach.call(grid.children, function (li) { li.classList.add("rbm-in"); }); }, 1500);
       var vis = Math.min(shown, l.length);
       $("rbm-count").textContent = l.length + (l.length === 1 ? " Teil" : " Teile") + (brand ? " von " + brand : "") + (onlyNew ? " · neu" : "");
       $("rbm-empty").hidden = l.length > 0;

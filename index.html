@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resell by Michelle – Fashion Reselling Service im Raum Stuttgart</title>
+  <meta name="description" content="Mehr Zeit. Mehr Geld. Ohne Aufwand. Michelle holt deine ungetragene Kleidung ab, fotografiert sie professionell, verkauft sie und zahlt dich aus – im Raum Stuttgart & Esslingen.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Caveat:wght@500&family=Inter+Tight:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Intro curtain -->
+<div class="intro" aria-hidden="true">
+  <svg class="intro-mono" viewBox="0 0 100 100"><use href="#mono"/></svg>
+</div>
+
+<!-- SVG sprites -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="mono" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="48.5" fill="var(--blush)" stroke="var(--taupe)" stroke-width=".6"/>
+      <g fill="none" stroke="var(--espresso)" stroke-linecap="round">
+        <path d="M35.5 31v35" stroke-width="1.2"/>
+        <path d="M33 31.5c2.5-1.2 4.4-.6 5.6 1.2L61 66.5c2.8 4.3 6.6 6.6 11.4 7" stroke-width="3.4"/>
+        <path d="M64.5 31v35.5" stroke-width="3.3"/>
+        <path d="M64 31.5 50.5 54" stroke-width="1.2"/>
+        <path d="M31.5 66.5h8M60.5 67h8.5M60.5 30.5h7" stroke-width="1.2"/>
+      </g>
+    </symbol>
+    <symbol id="arrow-curl" viewBox="0 0 140 120">
+      <path pathLength="1" d="M128 8c-6 30-26 52-52 50-18-1-24-18-10-22 15-4 20 14 10 30-10 17-30 30-60 38"/>
+      <path pathLength="1" d="M26 92 6 104l20 9"/>
+    </symbol>
+    <symbol id="arrow-swoop" viewBox="0 0 160 90">
+      <path pathLength="1" d="M6 70C40 20 100 8 146 30"/>
+      <path pathLength="1" d="M128 16l19 14-21 8"/>
+    </symbol>
+    <symbol id="arrow-down" viewBox="0 0 80 140">
+      <path pathLength="1" d="M58 6C20 30 14 70 30 96c6 10 12 18 14 30"/>
+      <path pathLength="1" d="M30 116l14 14 12-18"/>
+    </symbol>
+    <symbol id="heart" viewBox="0 0 40 36">
+      <path pathLength="1" d="M20 33C8 24 3 17 4 11c1-6 8-9 13-5 2 1 3 3 3 5 0-2 2-5 5-6 6-2 11 2 11 8 0 7-7 13-16 20"/>
+    </symbol>
+    <symbol id="spark" viewBox="0 0 40 40">
+      <path pathLength="1" d="M20 3v34M3 20h34M8 8l24 24M32 8 8 32"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- Header -->
+<header class="site-header">
+  <a href="#start" class="brand" aria-label="Resell by Michelle – Startseite">
+    <svg class="brand-mono" viewBox="0 0 100 100"><use href="#mono"/></svg>
+    <span class="brand-text">
+      <span class="brand-name">Resell by Michelle</span>
+      <span class="brand-sub">Fashion Reselling Service</span>
+    </span>
+  </a>
+  <nav class="nav" aria-label="Hauptnavigation">
+    <a href="shop.html">Shop</a>
+    <a href="#wert">Verkäufe</a>
+    <a href="#ablauf">Ablauf</a>
+    <a href="#drops">Kleiderschränke</a>
+    <a href="#stories">Kundinnen</a>
+    <a href="#michelle">Über Michelle</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+  <button class="btn btn-ghost js-open-modal" type="button">Kleiderschrank abgeben</button>
+</header>
+
+<div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+<main>
+
+<!-- 01 HERO -->
+<section class="hero" id="start">
+  <div class="hero-copy">
+    <h1 class="hero-title">
+      <span class="line"><span class="hl hl-1">Mehr Zeit.</span></span>
+      <span class="line"><span class="hl hl-2">Mehr Geld.</span></span>
+      <span class="script hero-script"><span>Ohne Aufwand.</span></span>
+    </h1>
+    <span class="rule hero-rule"></span>
+    <p class="hero-lead reveal-fade">Ich verkaufe deine Kleidung.<br>Du bekommst das Geld.</p>
+    <div class="hero-actions reveal-fade">
+      <button class="btn btn-dark magnetic js-open-modal" type="button">Kleiderschrank abgeben</button>
+      <a class="link-arrow" href="#ablauf">So einfach geht's <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="hero-proof reveal-fade">
+      <div class="avatars" aria-hidden="true">
+        <img src="assets/kundin-1.webp" alt=""><img src="assets/kundin-2.webp" alt=""><img src="assets/kundin-3.webp" alt=""><span>♡</span>
+      </div>
+      <p>Kundinnen aus Stuttgart, Esslingen &amp; Umgebung<small>Abholung · Fotos · Verkauf · Auszahlung</small></p>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-frame">
+      <img src="assets/hero-michelle-real.webp" alt="Michelle mit Sonnenbrille und Leinenhemd in der Sonne" class="hero-img" fetchpriority="high">
+    </div>
+    <div class="float-card fc-1" data-depth="1.6" aria-hidden="true"><div class="fc-inner"><img src="assets/item-bag.webp" alt=""><span class="price-tag">Verkauft <b>120</b> €</span></div></div>
+    <div class="float-card fc-2" data-depth="1" aria-hidden="true"><div class="fc-inner"><img src="assets/item-boots.webp" alt=""><span class="price-tag">Verkauft <b>140</b> €</span></div></div>
+    <div class="float-card fc-3" data-depth="1.3" aria-hidden="true"><div class="fc-inner"><img src="assets/item-sweater.webp" alt=""><span class="price-tag">Verkauft <b>45</b> €</span></div></div>
+    <div class="hero-garment" aria-hidden="true">
+      <img src="assets/sweater-cutout.webp" alt="">
+      <span class="garment-tag"><i></i>Gute Mode findet<br>neue Lieblingsplätze <em>♡</em></span>
+    </div>
+    <div class="doodle hero-doodle" aria-hidden="true">
+      <span class="note">Zeit für dich ♡</span>
+      <svg class="draw arrow" viewBox="0 0 140 120"><use href="#arrow-curl"/></svg>
+    </div>
+    <svg class="draw spark hero-spark" viewBox="0 0 40 40" aria-hidden="true"><use href="#spark"/></svg>
+  </div>
+
+  <a href="#wert" class="scroll-cue" aria-label="Weiter scrollen"><span></span></a>
+</section>
+
+<!-- Statement -->
+<section class="statement" aria-label="Warum Resell by Michelle">
+  <p class="statement-text">Der Grund, warum dein Kleiderschrank <span class="st-img" aria-hidden="true"><img src="assets/scene-rack.webp" alt=""></span> immer voller wird? Teile, die du liebst – aber nie trägst. Ich gebe ihnen ein <em>neues Zuhause</em> <span class="st-img" aria-hidden="true"><img src="assets/scene-mailers.webp" alt=""></span> und dir das Geld.</p>
+</section>
+
+<!-- 02 WERT -->
+<section class="worth" id="wert" data-chapter="02" data-label="Wert">
+  <div class="worth-head">
+    <h2 class="display">
+      <span class="line"><span>Wie viel sind deine</span></span>
+      <span class="script worth-script"><span>ungetragenen Klamotten</span></span>
+      <span class="line"><span>wert?</span></span>
+    </h2>
+    <div class="doodle worth-doodle" aria-hidden="true">
+      <svg class="draw arrow" viewBox="0 0 140 120"><use href="#arrow-curl"/></svg>
+      <span class="note">meine Verkäufe der letzten Woche!</span>
+    </div>
+  </div>
+
+  <div class="sales-grid">
+    <article class="sale-card" data-rot="-3" data-speed="0.9">
+      <img src="assets/item-bag.webp" alt="Rosé Designer-Tasche mit Goldkette" loading="lazy">
+      <p class="sale-name">Designer Bag</p>
+      <span class="price-tag">Verkauft <b data-count="120">0</b> €</span>
+    </article>
+    <article class="sale-card" data-rot="2" data-speed="1.15">
+      <img src="assets/item-scarf.webp" alt="Karierter Wollschal" loading="lazy">
+      <p class="sale-name">Karo-Schal</p>
+      <span class="price-tag">Verkauft <b data-count="65">0</b> €</span>
+    </article>
+    <article class="sale-card" data-rot="-1.5" data-speed="0.8">
+      <img src="assets/item-sweater.webp" alt="Cremefarbener Zopfstrick-Pullover" loading="lazy">
+      <p class="sale-name">Strick</p>
+      <span class="price-tag">Verkauft <b data-count="45">0</b> €</span>
+    </article>
+    <article class="sale-card" data-rot="2.5" data-speed="1.1">
+      <img src="assets/item-boots.webp" alt="Schwarze Lederstiefel" loading="lazy">
+      <p class="sale-name">Boots</p>
+      <span class="price-tag">Verkauft <b data-count="140">0</b> €</span>
+    </article>
+    <article class="sale-card" data-rot="-2" data-speed="0.95">
+      <img src="assets/item-blazer.webp" alt="Camelfarbener Blazer" loading="lazy">
+      <p class="sale-name">Blazer</p>
+      <span class="price-tag">Verkauft <b data-count="85">0</b> €</span>
+    </article>
+    <article class="sale-card" data-rot="1.5" data-speed="1.2">
+      <img src="assets/item-cardigan.webp" alt="Kinder-Strickjacke mit Blümchen" loading="lazy">
+      <p class="sale-name">Kids-Strickjacke</p>
+      <span class="price-tag">Verkauft <b data-count="35">0</b> €</span>
+    </article>
+  </div>
+
+  <div class="worth-total">
+    <p>Allein diese sechs Teile:</p>
+    <p class="total-num"><span data-count="490">0</span>&nbsp;€</p>
+    <button class="link-arrow js-open-modal" type="button">Kleiderschrank abgeben <span aria-hidden="true">→</span></button>
+  </div>
+</section>
+
+<!-- FILM -->
+<section class="film" id="film" aria-label="Film: Vom Kleiderschrank zum Paket">
+  <div class="film-inner">
+    <h2 class="display film-title"><span class="line"><span>Vom Kleiderschrank</span></span><span class="script"><span>zum Paket</span></span></h2>
+    <div class="film-frame">
+      <video class="film-video" src="assets/process-film.mp4" poster="assets/process-film-poster.jpg" muted playsinline preload="auto" loop></video>
+      <div class="film-shade" aria-hidden="true"></div>
+      <div class="film-caps" aria-hidden="true">
+        <p class="fcap is-active"><span>01</span>Abholen</p>
+        <p class="fcap"><span>02</span>Fotografieren &amp; inserieren</p>
+        <p class="fcap"><span>03</span>Versenden &amp; auszahlen</p>
+      </div>
+      <div class="film-bar" aria-hidden="true"><span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 ABLAUF -->
+<section class="process" id="ablauf" data-chapter="03" data-label="So funktioniert's">
+  <div class="process-inner">
+    <div class="process-copy">
+      <h2 class="display process-title">In 3 Schritten <span class="script">zum Geld</span></h2>
+      <ol class="steps">
+        <li class="step is-active" data-step="0">
+          <span class="step-num">01</span>
+          <div>
+            <h3>Abholen</h3>
+            <p>Du sortierst aus, ich komme vorbei. Ich hole deine Teile im Raum Stuttgart &amp; Esslingen direkt bei dir zuhause ab.</p>
+            <img class="step-media" src="assets/scene-rack.webp" alt="Kleiderstange mit ungetragenen Teilen" loading="lazy">
+          </div>
+        </li>
+        <li class="step" data-step="1">
+          <span class="step-num">02</span>
+          <div>
+            <h3>Fotografieren &amp; inserieren</h3>
+            <p>In meinem Fotostudio mit Softboxen setze ich jedes Teil ins beste Licht, schreibe das Inserat und kümmere mich um alle Käuferfragen.</p>
+            <img class="step-media" src="assets/scene-softbox.webp" alt="Fotostudio mit Softboxen und Tasche auf Podest" loading="lazy">
+          </div>
+        </li>
+        <li class="step" data-step="2">
+          <span class="step-num">03</span>
+          <div>
+            <h3>Versenden &amp; auszahlen</h3>
+            <p>Verkauft! Ich verpacke liebevoll im rosa Versandbeutel, verschicke – und du bekommst dein Geld ausgezahlt.</p>
+            <img class="step-media" src="assets/scene-packing.webp" alt="Strick wird in rosa Versandbeutel verpackt" loading="lazy">
+          </div>
+        </li>
+      </ol>
+      <div class="step-progress" aria-hidden="true"><span></span></div>
+    </div>
+
+    <div class="stage" aria-hidden="true">
+      <div class="frame f1"><img src="assets/scene-rack.webp" alt=""><span class="frame-label">vorher: ungetragen</span><span class="frame-note n1">noch mit Etikett!</span></div>
+      <div class="frame f2"><img src="assets/scene-softbox.webp" alt=""><span class="frame-label">Studio · Licht an</span><span class="frame-note n2">✦ wie im Katalog</span></div>
+      <div class="frame f3"><img src="assets/scene-phone-shoot.webp" alt=""><span class="frame-label">Inserat wird erstellt</span></div>
+      <div class="frame f4"><img src="assets/scene-packing.webp" alt=""><span class="frame-label">Verpackt mit Liebe</span></div>
+      <div class="frame f5"><img src="assets/scene-mailers.webp" alt=""><span class="frame-label">Bereit zum Versand</span><span class="frame-note n5">ab die Post ♡</span></div>
+
+      <div class="listing">
+        <img src="assets/item-bag.webp" alt="">
+        <div class="listing-body">
+          <p class="listing-title">Designer Tasche · Rosé</p>
+          <p class="listing-meta">Sehr gut · Goldkette</p>
+          <p class="listing-price">120,00 €</p>
+        </div>
+        <span class="listing-status"><span class="s-live">Inseriert</span><span class="s-sold">Verkauft ✓</span></span>
+      </div>
+
+      <div class="payout">
+        <p class="payout-label">Auszahlung an dich</p>
+        <p class="payout-num">+ <span class="payout-count">0</span>,00 €</p>
+        <p class="payout-sub">für 6 verkaufte Teile</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 DROPS -->
+<section class="drops" id="drops" data-chapter="04" data-label="Drops">
+  <div class="drops-head">
+    <h2 class="display drops-title"><span class="line"><span>Dein Kleiderschrank</span></span><span class="script"><span>als eigene Kollektion</span></span></h2>
+    <div class="drops-explain">
+      <p class="drops-intro">Statt einzelner Teile stelle ich deinen ganzen Kleiderschrank als eigenen Drop online – mit deinem Namen, deiner Geschichte und eigener Ankündigung auf Instagram. So bekommen deine Teile die Aufmerksamkeit, die sie verdienen.</p>
+      <ol class="drops-steps">
+        <li><span>1</span>Du gibst deinen Schrank ab</li>
+        <li><span>2</span>Ich kuratiere &amp; fotografiere alles</li>
+        <li><span>3</span>Dein Drop geht online – unter deinem Namen</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="drops-feature">
+    <article class="drop drop-lisa">
+      <span class="drop-label">Beispiel-Drop</span>
+      <div class="drop-text">
+        <h2 class="display drop-title">
+          <span class="line"><span>Preloved</span></span>
+          <span class="line"><span>Treasures</span></span>
+          <span class="script"><span>aus Lisas Kleiderschrank</span></span>
+        </h2>
+        <p class="drop-count">Du hast keine Zeit zum Verkaufen? Ich kümmere mich um den Rest.</p>
+      </div>
+      <div class="lisa-items" aria-hidden="true">
+        <img src="assets/item-bag.webp" alt="">
+        <img src="assets/item-boots.webp" alt="">
+        <img src="assets/item-blazer.webp" alt="">
+        <img src="assets/item-scarf.webp" alt="">
+        <svg class="draw heart lisa-heart" viewBox="0 0 40 36"><use href="#heart"/></svg>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="drops-grid">
+    <article class="drop drop-jac">
+      <span class="drop-label">Beispiel-Drop</span>
+      <div class="drop-text">
+        <h2 class="display drop-title">
+          <span class="line"><span>Jacquelines</span></span>
+          <span class="script"><span>Kleiderschrank</span></span>
+          <span class="line"><span>ist online!</span></span>
+        </h2>
+        <p class="drop-count">Über 70 Teile online – und es werden noch mehr! <a class="vinted-pill" href="shop.html">Alle Teile im Shop →</a></p>
+        <div class="doodle jac-doodle" aria-hidden="true">
+          <svg class="draw arrow" viewBox="0 0 80 140"><use href="#arrow-down"/></svg>
+        </div>
+      </div>
+      <div class="drop-media">
+        <img class="drop-photo" src="assets/jacqueline.webp" alt="Jacqueline im schwarzen Kleid in ihrem Ankleidezimmer" loading="lazy">
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <p class="app-head">Second Hand<small>Jacquelines Kleiderschrank</small></p>
+            <div class="app-tabs"><b>Alle</b><span>Damen</span><span>Taschen</span><span>Schuhe</span></div>
+            <div class="app-scroll">
+              <div class="app-grid">
+                <div class="app-item"><img src="assets/item-blazer.webp" alt=""><p>Blazer<br><small>Gr. 36</small></p><b>€ 85</b></div>
+                <div class="app-item"><img src="assets/item-bag.webp" alt=""><p>Designer Tasche<br><small>Second Hand</small></p><b>€ 120</b></div>
+                <div class="app-item"><img src="assets/item-sweater.webp" alt=""><p>Kaschmir Pullover<br><small>Gr. S</small></p><b>€ 45</b></div>
+                <div class="app-item"><img src="assets/item-boots.webp" alt=""><p>Lederstiefel<br><small>Gr. 38</small></p><b>€ 140</b></div>
+                <div class="app-item"><img src="assets/item-scarf.webp" alt=""><p>Karo-Schal<br><small>Wolle</small></p><b>€ 65</b></div>
+                <div class="app-item"><img src="assets/item-cardigan.webp" alt=""><p>Strickjacke<br><small>Kids</small></p><b>€ 35</b></div>
+              </div>
+            </div>
+            <div class="app-nav"><span>Shop</span><span>♡</span><span>＋</span><span>Profil</span></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="drop drop-kids">
+      <span class="drop-label">Beispiel-Drop</span>
+      <div class="drop-text">
+        <h2 class="display drop-title">
+          <span class="line"><span>Mama zu Mama</span></span>
+          <span class="script"><span>Andras Kleiderschrank</span></span>
+        </h2>
+        <p class="drop-count">Über 45 Teile online – liebevoll getragene Babykleidung &amp; Marken-Pieces für Frauen</p>
+      </div>
+      <div class="drop-media">
+        <span class="badge-neu">Neu</span>
+        <img class="drop-photo" src="assets/kids-rack.webp" alt="Kinderkleidung an einer Holzstange, Teddy und Babyschuhe" loading="lazy">
+        <div class="doodle kids-doodle" aria-hidden="true">
+          <svg class="draw arrow" viewBox="0 0 140 120"><use href="#arrow-curl"/></svg>
+          <svg class="draw heart h1" viewBox="0 0 40 36"><use href="#heart"/></svg>
+          <svg class="draw heart h2" viewBox="0 0 40 36"><use href="#heart"/></svg>
+        </div>
+      </div>
+    </article>
+
+    
+  </div>
+</section>
+
+<!-- 05 KUNDINNEN -->
+<section class="stories" id="stories">
+  <div class="stories-pin">
+    <div class="stories-head">
+      <h2 class="display stories-title">
+        <span class="line"><span>So lief die</span></span>
+        <span class="script"><span>Zusammenarbeit</span></span>
+        <span class="line"><span>mit meinen Kundinnen</span></span>
+      </h2>
+    </div>
+    <div class="kundinnen-viewport">
+      <div class="kundinnen-track"></div>
+    </div>
+    <div class="kundinnen-bar" aria-hidden="true"><span></span></div>
+  </div>
+</section>
+
+<!-- 06 MICHELLE -->
+<section class="about" id="michelle" data-chapter="06" data-label="Über mich">
+  <div class="about-media">
+    <div class="about-frame"><img src="assets/michelle-about.webp" alt="Michelle auf dem Sofa mit ihrer grauen Katze" loading="lazy"></div>
+    <div class="anno anno-home" aria-hidden="true">
+      <span class="note">aus der Nähe<br>von Stuttgart</span>
+      <svg class="draw arrow" viewBox="0 0 140 120"><use href="#arrow-curl"/></svg>
+    </div>
+    <div class="anno anno-me" aria-hidden="true">
+      <span class="note">Ich bin 27 Jahre alt</span>
+      <svg class="draw arrow" viewBox="0 0 160 90"><use href="#arrow-swoop"/></svg>
+    </div>
+    <div class="anno anno-cat" aria-hidden="true">
+      <svg class="draw arrow" viewBox="0 0 140 120"><use href="#arrow-curl"/></svg>
+      <span class="note">Liebe Kleidung!</span>
+    </div>
+    <div class="mailer about-mailer" aria-hidden="true">
+      <span class="mailer-seal"></span>
+      <span class="mailer-print script-print">Second Hand Love</span>
+      <span class="mailer-heart">♡</span>
+    </div>
+    <div class="anno anno-bag" aria-hidden="true">
+      <svg class="draw arrow" viewBox="0 0 160 90"><use href="#arrow-swoop"/></svg>
+      <span class="note">Finanzbuchhalterin</span>
+    </div>
+  </div>
+
+  <div class="about-copy">
+    <h2 class="display about-title"><span class="line"><span>Hi, ich bin</span></span> <span class="script"><span>Michelle!</span></span></h2>
+    <p class="about-text reveal-up">Ich bin 27, komme aus der Nähe von Stuttgart und liebe Kleidung – und finde es schade, wenn sie ungetragen im Schrank hängt. Deshalb gibt es <em>Resell by Michelle</em>: Ich hole deine Teile ab, setze sie in meinem Studio ins richtige Licht und kümmere mich um alles. Vom Inserat über Käuferfragen bis zum Versand im rosa Päckchen.</p>
+    <p class="about-text reveal-up">Hauptberuflich bin ich Finanzbuchhalterin – saubere Zahlen und eine transparente Abrechnung sind für mich selbstverständlich.</p>
+    <p class="about-text reveal-up">Du lehnst dich zurück. Ich mache den Rest – und du bekommst das Geld.</p>
+    <ul class="promises">
+      <li class="reveal-up"><span>✦</span> Persönliche Abholung im Raum Stuttgart &amp; Esslingen</li>
+      <li class="reveal-up"><span>✦</span> Professionelle Fotos im eigenen Studio</li>
+      <li class="reveal-up"><span>✦</span> Transparente Abrechnung – von Anfang bis Auszahlung</li>
+    </ul>
+    <p class="signature">Michelle</p>
+  </div>
+</section>
+
+<!-- Behind the scenes -->
+<section class="bts" aria-labelledby="bts-title">
+  <div class="bts-head">
+    <h2 class="display bts-title" id="bts-title"><span class="line"><span>Hinter den</span></span> <span class="script"><span>Kulissen</span></span></h2>
+    <a class="link-arrow" href="#" aria-label="Resell by Michelle auf Instagram">Folge mir auf Instagram <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="bts-track">
+    <figure class="bts-tile"><img src="assets/insta-bags.webp" alt="Designer-Taschen vor dem Verkauf" loading="lazy"><figcaption>Taschen-Check</figcaption></figure>
+    <figure class="bts-tile"><img src="assets/insta-studio.webp" alt="Michelle richtet eine Bluse im Fotostudio" loading="lazy"><figcaption>im Studio</figcaption></figure>
+    <figure class="bts-tile"><img src="assets/insta-phone.webp" alt="Tasche wird mit dem Smartphone fotografiert" loading="lazy"><figcaption>klick, inseriert</figcaption></figure>
+    <figure class="bts-tile"><img src="assets/insta-set.webp" alt="Fotostudio mit Softboxen und rosa Versandbeuteln auf dem Tisch" loading="lazy"><figcaption>Versandtag ♡</figcaption></figure>
+    <figure class="bts-tile"><img src="assets/insta-check.webp" alt="Michelle prüft einen karierten Schal" loading="lazy"><figcaption>Qualitätskontrolle</figcaption></figure>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-inner">
+    <div class="mailer cta-mailer" aria-hidden="true">
+      <span class="mailer-seal"></span>
+      <span class="mailer-print">Gute Mode<br>findet neue<br>Lieblingsplätze</span>
+      <span class="mailer-heart">♡</span>
+    </div>
+    <h2 class="display cta-title"><span class="line"><span>Bereit für</span></span> <span class="script"><span>mehr Platz?</span></span></h2>
+    <p class="cta-lead">Erzähl mir kurz, was in deinem Schrank wartet – ich melde mich persönlich bei dir.</p>
+    <button class="btn btn-dark btn-lg js-open-modal" type="button">Kleiderschrank abgeben</button>
+  </div>
+</section>
+
+</main>
+
+<!-- KONTAKT (Schnellanfrage) -->
+<section class="contact" id="kontakt">
+  <div class="contact-intro">
+    <h2 class="display contact-title"><span class="line"><span>Noch Fragen?</span></span><span class="script"><span>Schreib mir einfach.</span></span></h2>
+    <p class="contact-lead">Tippe auf eine Vorlage, ergänze deinen Namen – fertig. Ich melde mich persönlich bei dir.</p>
+    <ul class="contact-facts">
+      <li><span>✦</span> Antwort persönlich von Michelle</li>
+      <li><span>✦</span> Abholung im Raum Stuttgart &amp; Esslingen</li>
+      <li><span>✦</span> Unverbindlich &amp; kostenlos anfragen</li>
+    </ul>
+  </div>
+
+  <div class="contact-card">
+    <form class="quick-form" novalidate>
+      <fieldset class="quick-templates">
+        <legend>Worum geht's? <small>Mehrfachauswahl möglich</small></legend>
+        <button type="button" class="tpl" data-msg="Ich möchte meinen Kleiderschrank abgeben.">Kleiderschrank abgeben</button>
+        <button type="button" class="tpl" data-msg="Wie viel sind meine Teile ungefähr wert?">Was sind meine Teile wert?</button>
+        <button type="button" class="tpl" data-msg="Wann könntest du bei mir abholen?">Abholtermin</button>
+        <button type="button" class="tpl" data-msg="Ich habe Kinder- und Babykleidung zum Verkaufen.">Kinderkleidung</button>
+        <button type="button" class="tpl" data-msg="Wie läuft die Auszahlung ab und was kostet dein Service?">Kosten &amp; Auszahlung</button>
+        <button type="button" class="tpl" data-msg="Ich interessiere mich für ein Teil aus einem deiner Drops.">Frage zu einem Drop</button>
+      </fieldset>
+      <label class="field"><span>Deine Nachricht</span><textarea name="qmessage" rows="3" placeholder="Wähle oben eine Vorlage oder schreib frei …"></textarea></label>
+      <div class="form-grid">
+        <label class="field"><span>Vorname</span><input name="qname" type="text" placeholder="z. B. Lisa" autocomplete="given-name"></label>
+        <label class="field"><span>Telefon oder E-Mail</span><input name="qcontact" type="text" placeholder="So erreiche ich dich" autocomplete="email"></label>
+      </div>
+      <fieldset class="chips quick-reach">
+        <legend>Wie darf ich mich melden?</legend>
+        <label><input type="radio" name="qreach" value="WhatsApp" checked><span>WhatsApp</span></label>
+        <label><input type="radio" name="qreach" value="E-Mail"><span>E-Mail</span></label>
+        <label><input type="radio" name="qreach" value="Anruf"><span>Anruf</span></label>
+      </fieldset>
+      <label class="consent"><input type="checkbox" name="qconsent"><span>Ich stimme zu, dass meine Angaben zur Bearbeitung meiner Anfrage gespeichert werden.</span></label>
+      <p class="form-error quick-error" role="alert"></p>
+      <button class="btn btn-dark btn-block" type="submit">Nachricht senden</button>
+    </form>
+    <div class="quick-success" hidden>
+      <svg class="draw success-heart" viewBox="0 0 40 36" aria-hidden="true"><use href="#heart"/></svg>
+      <h3 class="modal-title">Danke <span class="script">dir!</span></h3>
+      <p>Deine Nachricht ist angekommen. Ich melde mich so schnell wie möglich – auf dem Weg, den du gewählt hast.</p>
+      <button class="btn btn-ghost quick-again" type="button">Neue Nachricht</button>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p class="footer-word" aria-hidden="true">Resell by Michelle</p>
+  <div class="footer-brand">
+    <svg class="footer-mono" viewBox="0 0 100 100" aria-hidden="true"><use href="#mono"/></svg>
+    <div>
+      <p class="brand-name">Resell by Michelle</p>
+      <p class="brand-sub">Fashion Reselling Service · Raum Stuttgart</p>
+    </div>
+  </div>
+  <nav class="footer-links" aria-label="Footer">
+    <a href="#" aria-label="Instagram">Instagram</a>
+    <a href="shop.html">Shop</a>
+    <a href="#kontakt">Kontakt</a>
+    <a href="#">Impressum</a>
+    <a href="#">Datenschutz</a>
+  </nav>
+  <p class="footer-copy">© <span class="year"></span> Resell by Michelle</p>
+</footer>
+
+<!-- Instagram DM -->
+<a class="ig-dm" href="#" target="_blank" rel="noopener" aria-label="Michelle auf Instagram eine Nachricht schreiben">
+  <span class="ig-dm-icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r=".9" fill="currentColor" stroke="none"/></svg>
+  </span>
+  <span class="ig-dm-text">Schreib mir<small>Instagram DM</small></span>
+</a>
+
+<!-- MODAL -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+  <div class="modal-backdrop js-close-modal"></div>
+  <div class="modal-card">
+    <button class="modal-close js-close-modal" type="button" aria-label="Schließen">×</button>
+    <div class="modal-media">
+      <img src="assets/scene-packing.webp" alt="" loading="lazy">
+      <div class="mailer modal-mailer" aria-hidden="true">
+        <span class="mailer-seal"></span>
+        <span class="mailer-print">Resell<br>by Michelle</span>
+        <span class="mailer-heart">♡</span>
+      </div>
+    </div>
+    <div class="modal-body">
+      <form class="request-form" novalidate>
+        <h2 class="modal-title" id="modal-title">Kleiderschrank <span class="script">abgeben</span></h2>
+        <div class="form-grid">
+          <label class="field"><span>Name</span><input name="name" type="text" placeholder="Vor- und Nachname" autocomplete="name" required></label>
+          <label class="field"><span>E-Mail</span><input name="email" type="email" placeholder="name@beispiel.de" autocomplete="email" required></label>
+          <label class="field"><span>Telefon</span><input name="phone" type="tel" placeholder="+49 170 1234567" autocomplete="tel"></label>
+          <label class="field"><span>Wohnort</span><input name="city" type="text" placeholder="PLZ und Ort" autocomplete="postal-code" required></label>
+        </div>
+        <fieldset class="chips">
+          <legend>Wie viele Teile ungefähr?</legend>
+          <label><input type="radio" name="pieces" value="10-30" checked><span>10–30</span></label>
+          <label><input type="radio" name="pieces" value="30-60"><span>30–60</span></label>
+          <label><input type="radio" name="pieces" value="60+"><span>60+</span></label>
+        </fieldset>
+        <label class="field"><span>Welche Marken?</span><input name="brands" type="text" placeholder="z. B. Designer-Taschen, Blazer, Kids …"></label>
+        <label class="field"><span>Nachricht</span><textarea name="message" rows="2" placeholder="Weitere Informationen (optional) …"></textarea></label>
+        <label class="consent"><input type="checkbox" name="consent" required><span>Ich stimme zu, dass meine Angaben zur Bearbeitung meiner Anfrage gespeichert werden.</span></label>
+        <p class="form-error" role="alert"></p>
+        <button class="btn btn-dark btn-block" type="submit">Anfrage senden</button>
+      </form>
+      <div class="form-success" hidden>
+        <svg class="draw success-heart" viewBox="0 0 40 36" aria-hidden="true"><use href="#heart"/></svg>
+        <h2 class="modal-title">Danke <span class="script">dir!</span></h2>
+        <p>Deine Anfrage ist bei mir angekommen. Ich melde mich persönlich bei dir, um die Abholung zu planen.</p>
+        <button class="btn btn-ghost js-close-modal" type="button">Schließen</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

@@ -45,16 +45,25 @@ def money(p):
     return f"{p} €" if p else ""
 
 
+def photo_url(photo):
+    thumbs = {t.get("type"): t.get("url") for t in (photo or {}).get("thumbnails", [])}
+    return thumbs.get("thumb428x624") or thumbs.get("thumb310x430") or (photo or {}).get("url", "")
+
+
 def to_card(it):
-    photo = it.get("photo") or (it.get("photos") or [{}])[0] or {}
-    thumbs = {t.get("type"): t.get("url") for t in photo.get("thumbnails", [])}
+    photos = [p for p in (it.get("photos") or [it.get("photo")]) if p]
+    first = photos[0] if photos else {}
     return {
         "id": it["id"],
         "title": it.get("title", ""),
         "brand": it.get("brand_title") or it.get("brand") or "",
         "size": it.get("size_title") or it.get("size", ""),
         "price": money(it.get("price")),
-        "img": thumbs.get("thumb310x430") or photo.get("url", ""),
+        "img": photo_url(first),
+        "img2": photo_url(photos[1]) if len(photos) > 1 else "",  # Bildwechsel beim Hover
+        "color": first.get("dominant_color", ""),  # Platzhalterfarbe, bis das Bild geladen ist
+        "cond": it.get("status", ""),
+        "favs": it.get("favourite_count") or 0,
         "url": it.get("url") or f"https://www.vinted.de/items/{it['id']}",
     }
 

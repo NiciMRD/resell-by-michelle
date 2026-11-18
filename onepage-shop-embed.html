@@ -1,0 +1,228 @@
+<!-- Resell by Michelle – Vinted-Shop für einen onepage.io "Personalisierter Code"-Abschnitt.
+     Lädt die täglich aktualisierte Artikelliste von GitHub Pages. -->
+<div id="rbm-shop">
+  <style>
+    #rbm-shop { --bg:#fbf7f2; --card:#fffdfa; --ink:#38231d; --ink2:#5a3f35; --mute:#a8968a; --line:#e6dbd1; --sand:#efe2d6; --blush:#e8d3c8; --accent:#a37f72; --sage:#8a9a7b;
+      --serif:"Bodoni Moda",Didot,"Bodoni 72",Georgia,serif; --ease:cubic-bezier(.22,.8,.2,1);
+      max-width:1320px; margin:0 auto; padding:1rem 1rem 3rem; color:var(--ink); font-family:inherit; text-align:left; box-sizing:border-box; }
+    #rbm-shop *, #rbm-shop *::before, #rbm-shop *::after { box-sizing:border-box; }
+
+    /* Vertrauensleiste */
+    #rbm-shop .rbm-trust { display:flex; flex-wrap:wrap; justify-content:center; gap:.6rem 2rem; margin:0 0 2.2rem; padding:1rem 1.2rem; border-top:1px solid var(--line); border-bottom:1px solid var(--line); font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--ink2); }
+    #rbm-shop .rbm-trust b { font-family:var(--serif); font-size:1.15rem; letter-spacing:0; text-transform:none; color:var(--ink); margin-right:.35rem; font-weight:600; }
+    #rbm-shop .rbm-trust span { display:flex; align-items:baseline; }
+
+    /* Filter */
+    #rbm-shop .rbm-bar { display:flex; flex-wrap:wrap; gap:.8rem; align-items:center; justify-content:space-between; margin-bottom:1rem; }
+    #rbm-shop .rbm-search { position:relative; flex:1 1 260px; max-width:380px; }
+    #rbm-shop .rbm-search svg { position:absolute; left:1rem; top:50%; transform:translateY(-50%); width:16px; height:16px; stroke:var(--mute); fill:none; stroke-width:2; pointer-events:none; }
+    #rbm-shop input, #rbm-shop select { font:inherit; font-size:.9rem; color:var(--ink); background:var(--card); border:1px solid var(--line); border-radius:999px; padding:.8em 1.2em; outline:none; transition:border-color .2s, box-shadow .2s; -webkit-appearance:none; appearance:none; }
+    #rbm-shop input { width:100%; padding-left:2.6rem; }
+    #rbm-shop select { padding-right:2.4rem; cursor:pointer; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2338231d' stroke-width='1.5'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 1.1rem center; }
+    #rbm-shop input:focus, #rbm-shop select:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(163,127,114,.18); }
+    #rbm-shop .rbm-chips { display:flex; gap:.5rem; overflow-x:auto; padding:.2rem 0 .8rem; margin-bottom:1.2rem; scrollbar-width:none; -webkit-mask-image:linear-gradient(90deg,#000 92%,transparent); mask-image:linear-gradient(90deg,#000 92%,transparent); }
+    #rbm-shop .rbm-chips::-webkit-scrollbar { display:none; }
+    #rbm-shop .rbm-chip { flex:none; font:inherit; font-size:.78rem; letter-spacing:.04em; padding:.55em 1.1em; border-radius:999px; border:1px solid var(--line); background:var(--card); color:var(--ink2); cursor:pointer; white-space:nowrap; transition:all .25s var(--ease); }
+    #rbm-shop .rbm-chip small { opacity:.55; margin-left:.3em; }
+    #rbm-shop .rbm-chip:hover { border-color:var(--accent); color:var(--ink); }
+    #rbm-shop .rbm-chip[aria-pressed="true"] { background:var(--ink); border-color:var(--ink); color:var(--bg); }
+    #rbm-shop .rbm-chip.rbm-new[aria-pressed="false"] { border-color:var(--sage); color:#5d6b50; }
+    #rbm-shop .rbm-count { font-size:.72rem; letter-spacing:.24em; text-transform:uppercase; color:var(--mute); margin:0 0 1.4rem; }
+
+    /* Raster + Karten */
+    #rbm-shop ul { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:2rem 1.4rem; list-style:none; padding:0; margin:0; }
+    #rbm-shop li { opacity:0; transform:translateY(18px); transition:opacity .7s var(--ease), transform .7s var(--ease); }
+    #rbm-shop li.rbm-in { opacity:1; transform:none; }
+    #rbm-shop .rbm-card { display:block; text-decoration:none; color:inherit; background:var(--card); border-radius:14px; overflow:hidden; box-shadow:0 1px 2px rgba(56,35,29,.06); transition:transform .45s var(--ease), box-shadow .45s var(--ease); }
+    #rbm-shop .rbm-card:hover, #rbm-shop .rbm-card:focus-visible { transform:translateY(-6px); box-shadow:0 22px 40px -18px rgba(56,35,29,.35); outline:none; }
+    #rbm-shop .rbm-media { position:relative; aspect-ratio:3/4; overflow:hidden; background:var(--sand); }
+    #rbm-shop .rbm-media img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; transition:opacity .6s var(--ease), transform 1.2s var(--ease); }
+    #rbm-shop .rbm-media img.rbm-alt { opacity:0; }
+    #rbm-shop .rbm-card:hover .rbm-media img { transform:scale(1.05); }
+    #rbm-shop .rbm-card:hover .rbm-media img.rbm-alt { opacity:1; }
+    #rbm-shop .rbm-badges { position:absolute; top:.7rem; left:.7rem; right:.7rem; display:flex; justify-content:space-between; align-items:flex-start; gap:.4rem; pointer-events:none; }
+    #rbm-shop .rbm-badge { font-size:.6rem; font-weight:600; letter-spacing:.16em; text-transform:uppercase; padding:.5em .85em; border-radius:999px; background:rgba(255,253,250,.92); color:var(--ink); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); }
+    #rbm-shop .rbm-badge.rbm-tag { background:var(--ink); color:var(--bg); }
+    #rbm-shop .rbm-badge.rbm-fav { margin-left:auto; letter-spacing:.04em; }
+    #rbm-shop .rbm-badge.rbm-fav::before { content:"\2665"; color:#c0655a; margin-right:.35em; }
+    #rbm-shop .rbm-go { position:absolute; left:.7rem; right:.7rem; bottom:.7rem; text-align:center; font-size:.66rem; font-weight:600; letter-spacing:.22em; text-transform:uppercase; padding:.95em 1em; border-radius:999px; background:var(--ink); color:var(--bg); transform:translateY(140%); transition:transform .45s var(--ease); }
+    #rbm-shop .rbm-card:hover .rbm-go, #rbm-shop .rbm-card:focus-visible .rbm-go { transform:none; }
+    #rbm-shop .rbm-body { padding:1rem 1.05rem 1.15rem; display:grid; gap:.25rem; }
+    #rbm-shop .rbm-brand { font-size:.64rem; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:var(--accent); }
+    #rbm-shop .rbm-title { font-size:.92rem; line-height:1.4; color:var(--ink2); overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; min-height:2.8em; }
+    #rbm-shop .rbm-meta { display:flex; justify-content:space-between; align-items:center; margin-top:.45rem; padding-top:.65rem; border-top:1px solid var(--line); }
+    #rbm-shop .rbm-size { font-size:.72rem; letter-spacing:.08em; color:var(--ink2); border:1px solid var(--line); border-radius:6px; padding:.25em .6em; }
+    #rbm-shop .rbm-price { font-family:var(--serif); font-weight:600; font-size:1.3rem; letter-spacing:-.01em; }
+
+    /* Laden + Mehr */
+    #rbm-shop .rbm-skel .rbm-media, #rbm-shop .rbm-skel .rbm-line { background:linear-gradient(100deg,var(--sand) 30%,#f7efe8 50%,var(--sand) 70%); background-size:300% 100%; animation:rbm-shimmer 1.4s linear infinite; }
+    #rbm-shop .rbm-skel .rbm-line { height:.8em; border-radius:4px; margin:.35em 0; }
+    #rbm-shop .rbm-skel { opacity:1; transform:none; }
+    @keyframes rbm-shimmer { to { background-position:-100% 0; } }
+    #rbm-shop .rbm-more { text-align:center; margin-top:3rem; display:grid; justify-items:center; gap:.9rem; }
+    #rbm-shop .rbm-progress { width:min(240px,70%); height:2px; background:var(--line); border-radius:2px; overflow:hidden; }
+    #rbm-shop .rbm-progress i { display:block; height:100%; background:var(--ink); transition:width .6s var(--ease); }
+    #rbm-shop .rbm-note { font-size:.78rem; color:var(--mute); }
+    #rbm-shop .rbm-btn { display:inline-block; font:inherit; font-size:.72rem; font-weight:600; letter-spacing:.22em; text-transform:uppercase; padding:1.15em 2.4em; border-radius:999px; border:1px solid var(--ink); background:var(--ink); color:var(--bg); cursor:pointer; text-decoration:none; transition:transform .3s var(--ease), background .3s, color .3s; }
+    #rbm-shop .rbm-btn:hover { transform:translateY(-2px); background:transparent; color:var(--ink); }
+    #rbm-shop .rbm-empty { text-align:center; padding:3rem 1rem; color:var(--ink2); display:grid; gap:1rem; justify-items:center; }
+    #rbm-shop .rbm-updated { margin-top:2rem; font-size:.74rem; color:var(--mute); text-align:center; }
+    #rbm-shop [hidden] { display:none !important; }
+
+    @media (hover:none) { #rbm-shop .rbm-go { display:none; } }
+    @media (max-width:600px) {
+      #rbm-shop { padding-left:.75rem; padding-right:.75rem; }
+      #rbm-shop .rbm-trust { gap:.5rem 1.2rem; font-size:.6rem; }
+      #rbm-shop .rbm-search { max-width:none; flex-basis:100%; }
+      #rbm-shop select { width:100%; }
+      #rbm-shop ul { grid-template-columns:repeat(2,1fr); gap:1.1rem .7rem; }
+      #rbm-shop .rbm-body { padding:.75rem .75rem .85rem; }
+      #rbm-shop .rbm-title { font-size:.82rem; }
+      #rbm-shop .rbm-price { font-size:1.08rem; }
+      #rbm-shop .rbm-badge { font-size:.52rem; padding:.45em .7em; }
+      #rbm-shop .rbm-badges { top:.5rem; left:.5rem; right:.5rem; }
+    }
+    @media (prefers-reduced-motion:reduce) {
+      #rbm-shop li, #rbm-shop .rbm-card, #rbm-shop .rbm-media img, #rbm-shop .rbm-go { transition:none; }
+      #rbm-shop li { opacity:1; transform:none; }
+    }
+  </style>
+
+  <div class="rbm-trust" id="rbm-trust" hidden></div>
+  <div class="rbm-bar">
+    <label class="rbm-search">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+      <input id="rbm-q" type="search" placeholder="Suchen: Marke, Teil, Größe …" aria-label="Suchen">
+    </label>
+    <select id="rbm-sort" aria-label="Sortieren">
+      <option value="new">Neueste zuerst</option>
+      <option value="fav">Beliebteste zuerst</option>
+      <option value="asc">Preis aufsteigend</option>
+      <option value="desc">Preis absteigend</option>
+    </select>
+  </div>
+  <div class="rbm-chips" id="rbm-chips" role="group" aria-label="Filter"></div>
+  <p class="rbm-count" id="rbm-count" aria-live="polite"></p>
+  <ul id="rbm-grid"></ul>
+  <div class="rbm-empty" id="rbm-empty" hidden>
+    <p>Dazu ist gerade nichts online – schau gern im ganzen Kleiderschrank.</p>
+    <button class="rbm-btn" id="rbm-reset" type="button">Filter zurücksetzen</button>
+  </div>
+  <div class="rbm-more" id="rbm-morebox" hidden>
+    <div class="rbm-progress"><i id="rbm-bar"></i></div>
+    <p class="rbm-note" id="rbm-note"></p>
+    <button class="rbm-btn" id="rbm-more" type="button">Mehr entdecken</button>
+  </div>
+  <div class="rbm-more" id="rbm-profilebox" hidden>
+    <a class="rbm-btn" href="https://www.vinted.de/member/61501619-mxchellexm" target="_blank" rel="noopener">Ganzes Vinted-Profil ansehen</a>
+  </div>
+  <p class="rbm-updated" id="rbm-updated"></p>
+
+  <script>
+  (function () {
+    var DATA = "https://nicimrd.github.io/resell-by-michelle/vinted-items.json";
+    var STEP = 24, BRANDS = 8, POPULAR = 10; // ab so vielen Herzen gilt ein Teil als beliebt
+    var root = document.getElementById("rbm-shop");
+    var $ = function (id) { return root.querySelector("#" + id); };
+    var num = function (p) { return parseFloat(String(p).replace(/[^\d,]/g, "").replace(",", ".")) || 0; };
+    var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
+    var isNew = function (i) { return /^neu/i.test(i.cond || ""); };
+    var items = [], shown = STEP, brand = "", onlyNew = false;
+    var io = "IntersectionObserver" in window ? new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("rbm-in"); io.unobserve(e.target); } });
+    }, { rootMargin: "0px 0px -40px 0px" }) : null;
+
+    function skeleton() {
+      var s = ""; for (var k = 0; k < 8; k++) s += '<li class="rbm-skel"><div class="rbm-card"><div class="rbm-media"></div><div class="rbm-body"><div class="rbm-line" style="width:40%"></div><div class="rbm-line"></div><div class="rbm-line" style="width:60%"></div></div></div></li>';
+      $("rbm-grid").innerHTML = s;
+    }
+
+    function card(i) {
+      var tag = isNew(i) ? '<span class="rbm-badge rbm-tag">' + esc(i.cond.replace(/,.*$/, "")) + (/mit Etikett/i.test(i.cond) ? " mit Etikett" : "") + '</span>' : "<span></span>";
+      var fav = i.favs >= POPULAR ? '<span class="rbm-badge rbm-fav">' + esc(i.favs) + '</span>' : "";
+      var bg = /^#[0-9a-f]{6}$/i.test(i.color || "") ? ' style="background:' + i.color + '33"' : "";
+      return '<li><a class="rbm-card" href="' + esc(i.url) + '" target="_blank" rel="noopener" aria-label="' + esc(i.title + ", " + i.price + " – auf Vinted ansehen") + '">' +
+        '<div class="rbm-media"' + bg + '><img src="' + esc(i.img) + '" alt="' + esc(i.title) + '" loading="lazy">' +
+        (i.img2 ? '<img class="rbm-alt" src="' + esc(i.img2) + '" alt="" loading="lazy">' : "") +
+        '<div class="rbm-badges">' + tag + fav + '</div><span class="rbm-go">Auf Vinted ansehen →</span></div>' +
+        '<div class="rbm-body">' + (i.brand ? '<span class="rbm-brand">' + esc(i.brand) + '</span>' : "") +
+        '<span class="rbm-title">' + esc(i.title) + '</span>' +
+        '<span class="rbm-meta">' + (i.size ? '<span class="rbm-size">' + esc(i.size) + '</span>' : "<span></span>") + '<span class="rbm-price">' + esc(i.price) + '</span></span>' +
+        '</div></a></li>';
+    }
+
+    function chips() {
+      var counts = {};
+      items.forEach(function (i) { if (i.brand) counts[i.brand] = (counts[i.brand] || 0) + 1; });
+      var top = Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a]; }).slice(0, BRANDS);
+      var newCount = items.filter(isNew).length;
+      var h = '<button type="button" class="rbm-chip" data-brand="" aria-pressed="' + (!brand) + '">Alle<small>' + items.length + '</small></button>';
+      if (newCount) h += '<button type="button" class="rbm-chip rbm-new" data-new="1" aria-pressed="' + onlyNew + '">✦ Neu<small>' + newCount + '</small></button>';
+      top.forEach(function (b) { h += '<button type="button" class="rbm-chip" data-brand="' + esc(b) + '" aria-pressed="' + (brand === b) + '">' + esc(b) + '<small>' + counts[b] + '</small></button>'; });
+      $("rbm-chips").innerHTML = h;
+    }
+
+    function trust() {
+      var n = items.filter(isNew).length, brands = {};
+      items.forEach(function (i) { if (i.brand) brands[i.brand] = 1; });
+      $("rbm-trust").innerHTML = '<span><b>' + items.length + '</b>Teile online</span>' +
+        (n ? '<span><b>' + n + '</b>neu &amp; ungetragen</span>' : "") +
+        '<span><b>' + Object.keys(brands).length + '</b>Marken</span>' +
+        '<span>Sicher kaufen mit Vinted-Käuferschutz</span>';
+      $("rbm-trust").hidden = false;
+    }
+
+    function list() {
+      var q = $("rbm-q").value.trim().toLowerCase(), s = $("rbm-sort").value;
+      var l = items.filter(function (i) {
+        return (!brand || i.brand === brand) && (!onlyNew || isNew(i)) &&
+          (!q || [i.title, i.brand, i.size, i.cond].join(" ").toLowerCase().indexOf(q) > -1);
+      });
+      if (s === "fav") l = l.slice().sort(function (a, b) { return (b.favs || 0) - (a.favs || 0); });
+      else if (s !== "new") l = l.slice().sort(function (a, b) { return (num(a.price) - num(b.price)) * (s === "asc" ? 1 : -1); });
+      return l;
+    }
+
+    function render(append) {
+      var l = list(), grid = $("rbm-grid"), from = append ? grid.children.length : 0;
+      var html = l.slice(from, shown).map(card).join("");
+      if (append) grid.insertAdjacentHTML("beforeend", html); else grid.innerHTML = html;
+      [].slice.call(grid.children, from).forEach(function (li, k) {
+        li.style.transitionDelay = Math.min(k, 8) * 60 + "ms";
+        if (io) io.observe(li); else li.classList.add("rbm-in");
+      });
+      var vis = Math.min(shown, l.length);
+      $("rbm-count").textContent = l.length + (l.length === 1 ? " Teil" : " Teile") + (brand ? " von " + brand : "") + (onlyNew ? " · neu" : "");
+      $("rbm-empty").hidden = l.length > 0;
+      $("rbm-morebox").hidden = l.length <= shown;
+      $("rbm-profilebox").hidden = l.length === 0 || l.length > shown;
+      $("rbm-note").textContent = vis + " von " + l.length + " Teilen angesehen";
+      $("rbm-bar").style.width = (l.length ? vis / l.length * 100 : 0) + "%";
+    }
+
+    function reset() { shown = STEP; chips(); render(false); }
+
+    skeleton();
+    fetch(DATA, { cache: "no-cache" })
+      .then(function (r) { return r.ok ? r.json() : { items: [] }; })
+      .catch(function () { return { items: [] }; })
+      .then(function (d) {
+        items = (d.items || []).filter(function (i) { return /^https:\/\/www\.vinted\./.test(i.url) && /^https:\/\//.test(i.img); })
+          .map(function (i) { if (i.img2 && !/^https:\/\//.test(i.img2)) i.img2 = ""; return i; });
+        if (d.updated) $("rbm-updated").textContent = "Zuletzt aktualisiert: " + d.updated;
+        if (items.length) trust();
+        reset();
+      });
+
+    $("rbm-chips").addEventListener("click", function (e) {
+      var b = e.target.closest(".rbm-chip"); if (!b) return;
+      if (b.hasAttribute("data-new")) onlyNew = !onlyNew; else { brand = b.getAttribute("data-brand"); }
+      reset();
+    });
+    $("rbm-q").addEventListener("input", function () { shown = STEP; render(false); });
+    $("rbm-sort").addEventListener("change", function () { shown = STEP; render(false); });
+    $("rbm-more").addEventListener("click", function () { shown += STEP; render(true); });
+    $("rbm-reset").addEventListener("click", function () { brand = ""; onlyNew = false; $("rbm-q").value = ""; reset(); });
+  })();
+  </script>
+</div>

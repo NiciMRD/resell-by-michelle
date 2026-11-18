@@ -14,6 +14,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: python3 tools/vinted_sync.py https://www.vinted.de/member/61501619-mxchellexm
+        env:
+          TZ: Europe/Berlin # "Zuletzt aktualisiert" in deutscher Zeit
       - name: Commit, falls sich etwas geändert hat
         run: |
           git config user.name "vinted-sync"

@@ -1,6 +1,8 @@
 <!-- Resell by Michelle – Vinted-Shop für einen onepage.io "Personalisierter Code"-Abschnitt.
      Lädt die täglich aktualisierte Artikelliste von GitHub Pages. -->
 <div id="rbm-shop">
+  <link rel="preconnect" href="https://nicimrd.github.io" crossorigin>
+  <link rel="preconnect" href="https://images1.vinted.net">
   <style>
     #rbm-shop { --bg:#fbf7f2; --card:#fffdfa; --ink:#38231d; --ink2:#5a3f35; --mute:#a8968a; --line:#e6dbd1; --sand:#efe2d6; --blush:#e8d3c8; --accent:#a37f72; --sage:#8a9a7b;
       --serif:"Bodoni Moda",Didot,"Bodoni 72",Georgia,serif; --ease:cubic-bezier(.22,.8,.2,1);
@@ -38,6 +40,7 @@
     #rbm-shop .rbm-media { position:relative; aspect-ratio:3/4; overflow:hidden; background:var(--sand); }
     #rbm-shop .rbm-media img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; transition:opacity .6s var(--ease), transform 1.2s var(--ease); }
     #rbm-shop .rbm-media img.rbm-alt { opacity:0; }
+    #rbm-shop .rbm-media img.rbm-alt:not([src]) { display:none; }
     #rbm-shop .rbm-card:hover .rbm-media img { transform:scale(1.05); }
     #rbm-shop .rbm-card:hover .rbm-media img.rbm-alt { opacity:1; }
     #rbm-shop .rbm-badges { position:absolute; top:.7rem; left:.7rem; right:.7rem; display:flex; justify-content:space-between; align-items:flex-start; gap:.4rem; pointer-events:none; }
@@ -137,13 +140,15 @@
       $("rbm-grid").innerHTML = s;
     }
 
-    function card(i) {
+    function card(i, idx) {
+      var first = idx < 4; // die ersten Fotos sofort laden, der Rest erst beim Scrollen
       var tag = isNew(i) ? '<span class="rbm-badge rbm-tag">' + esc(i.cond.replace(/,.*$/, "")) + (/mit Etikett/i.test(i.cond) ? " mit Etikett" : "") + '</span>' : "<span></span>";
       var fav = i.favs >= POPULAR ? '<span class="rbm-badge rbm-fav">' + esc(i.favs) + '</span>' : "";
       var bg = /^#[0-9a-f]{6}$/i.test(i.color || "") ? ' style="background:' + i.color + '33"' : "";
       return '<li><a class="rbm-card" href="' + esc(i.url) + '" target="_blank" rel="noopener" aria-label="' + esc(i.title + ", " + i.price + " – auf Vinted ansehen") + '">' +
-        '<div class="rbm-media"' + bg + '><img src="' + esc(i.img) + '" alt="' + esc(i.title) + '" loading="lazy">' +
-        (i.img2 ? '<img class="rbm-alt" src="' + esc(i.img2) + '" alt="" loading="lazy">' : "") +
+        '<div class="rbm-media"' + bg + '><img src="' + esc(i.img) + '" alt="' + esc(i.title) + '"' + (first ? ' fetchpriority="high"' : ' loading="lazy"') + ' decoding="async">' +
+        // Hover-Foto ohne src: wird erst beim Darüberfahren geladen (siehe loadAlt)
+        (i.img2 ? '<img class="rbm-alt" data-src="' + esc(i.img2) + '" alt="" decoding="async">' : "") +
         '<div class="rbm-badges">' + tag + fav + '</div><span class="rbm-go">Auf Vinted ansehen →</span></div>' +
         '<div class="rbm-body">' + (i.brand ? '<span class="rbm-brand">' + esc(i.brand) + '</span>' : "") +
         '<span class="rbm-title">' + esc(i.title) + '</span>' +
@@ -185,7 +190,7 @@
 
     function render(append) {
       var l = list(), grid = $("rbm-grid"), from = append ? grid.children.length : 0;
-      var html = l.slice(from, shown).map(card).join("");
+      var html = l.slice(from, shown).map(function (i, k) { return card(i, from + k); }).join("");
       if (append) grid.insertAdjacentHTML("beforeend", html); else grid.innerHTML = html;
       [].slice.call(grid.children, from).forEach(function (li, k) {
         li.style.transitionDelay = Math.min(k, 8) * 60 + "ms";
@@ -225,6 +230,12 @@
     $("rbm-sort").addEventListener("change", function () { shown = STEP; render(false); });
     $("rbm-more").addEventListener("click", function () { shown += STEP; render(true); });
     $("rbm-reset").addEventListener("click", function () { brand = ""; onlyNew = false; $("rbm-q").value = ""; reset(); });
+    function loadAlt(e) {
+      var c = e.target.closest && e.target.closest(".rbm-card"), a = c && c.querySelector(".rbm-alt[data-src]");
+      if (a) { a.src = a.getAttribute("data-src"); a.removeAttribute("data-src"); }
+    }
+    $("rbm-grid").addEventListener("mouseover", loadAlt);
+    $("rbm-grid").addEventListener("focusin", loadAlt);
   })();
   </script>
 </div>

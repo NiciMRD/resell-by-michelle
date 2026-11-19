@@ -47,7 +47,8 @@ def money(p):
 
 def photo_url(photo):
     thumbs = {t.get("type"): t.get("url") for t in (photo or {}).get("thumbnails", [])}
-    return thumbs.get("thumb428x624") or thumbs.get("thumb310x430") or (photo or {}).get("url", "")
+    # 310x430 (~40 KB) reicht für die Karten; die größeren Varianten sind 800 px (~130 KB)
+    return thumbs.get("thumb310x430") or (photo or {}).get("url", "")
 
 
 def to_card(it):

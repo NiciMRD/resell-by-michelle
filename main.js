@@ -62,6 +62,24 @@
     });
   });
 
+  /* ---------- Formular-Versand (Web3Forms leitet als E-Mail weiter) ---------- */
+  // Schlüssel von web3forms.com (an die Empfänger-Adresse gebunden; darf öffentlich im Code stehen)
+  const WEB3FORMS_KEY = '';
+  async function sendForm(subject, fields, replyTo, btn) {
+    if (!WEB3FORMS_KEY) throw new Error('kein Schlüssel');
+    btn.disabled = true;
+    try {
+      const r = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ access_key: WEB3FORMS_KEY, subject, from_name: 'Website Resell by Michelle', replyto: replyTo, ...fields })
+      });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok || !j.success) throw new Error(j.message || r.status);
+    } finally { btn.disabled = false; }
+  }
+  const SEND_FAIL = 'Senden hat leider nicht geklappt. Bitte versuch es gleich nochmal oder schreib mir auf Instagram.';
+
   /* ---------- Modal: Kleiderschrank abgeben ---------- */
   const modal = $('#modal');
   const card = $('.modal-card', modal);
@@ -115,7 +133,7 @@
     }
   });
 
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
     $$('.field.is-invalid', form).forEach(f => f.classList.remove('is-invalid'));
     const data = new FormData(form);
@@ -126,7 +144,13 @@
     if (invalid.length) { errorEl.textContent = 'Bitte fülle Name, E-Mail und Wohnort korrekt aus.'; form.elements[invalid[0]].focus(); return; }
     if (!data.get('consent')) { errorEl.textContent = 'Bitte bestätige noch die Datenschutz-Einwilligung.'; return; }
     errorEl.textContent = '';
-    // TODO: an Backend / Formular-Dienst anbinden, z. B. fetch(ENDPOINT, { method: 'POST', body: data })
+    if (data.get('botcheck')) return;
+    try {
+      await sendForm('Neue Anfrage: Kleiderschrank abgeben', {
+        Name: data.get('name'), 'E-Mail': data.get('email'), Telefon: data.get('phone'), Wohnort: data.get('city'),
+        'Anzahl Teile': data.get('pieces'), Marken: data.get('brands'), Nachricht: data.get('message')
+      }, data.get('email'), $('button[type="submit"]', form));
+    } catch { errorEl.textContent = SEND_FAIL; return; }
     form.hidden = true;
     success.hidden = false;
     if (animated) {
@@ -153,7 +177,7 @@
     else if (btn.classList.contains('is-on')) qMsg.value = (qMsg.value.trim() + ' ' + btn.dataset.msg).trim();
     if (window.gsap && !reduce) gsap.fromTo(btn, { scale: .92 }, { scale: 1, duration: .5, ease: 'back.out(3)' });
   }));
-  qForm.addEventListener('submit', e => {
+  qForm.addEventListener('submit', async e => {
     e.preventDefault();
     const d = new FormData(qForm);
     $$('.field.is-invalid', qForm).forEach(f => f.classList.remove('is-invalid'));
@@ -166,7 +190,13 @@
     if (bad.length) { qErr.textContent = 'Bitte Nachricht, Vorname und Telefon oder E-Mail angeben.'; qForm.elements[bad[0]].focus(); return; }
     if (!d.get('qconsent')) { qErr.textContent = 'Bitte bestätige noch die Datenschutz-Einwilligung.'; return; }
     qErr.textContent = '';
-    // TODO: an Backend / Formular-Dienst anbinden, z. B. fetch(ENDPOINT, { method: 'POST', body: d })
+    if (d.get('botcheck')) return;
+    try {
+      await sendForm('Neue Nachricht über das Kontaktformular', {
+        Vorname: d.get('qname'), 'Telefon oder E-Mail': c, 'Melden per': d.get('qreach'),
+        'Aufmerksam geworden durch': d.get('qsource') || 'keine Angabe', Nachricht: d.get('qmessage')
+      }, c.includes('@') ? c : undefined, $('button[type="submit"]', qForm));
+    } catch { qErr.textContent = SEND_FAIL; return; }
     qForm.hidden = true;
     qSuccess.hidden = false;
     if (window.gsap && !reduce) {

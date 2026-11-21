@@ -989,8 +989,7 @@ body::after {
 .ig-dm.is-collapsed { padding-right: 8px; }
 .ig-dm.is-collapsed .ig-dm-text { display: none; }
 body.modal-open .ig-dm { opacity: 0; pointer-events: none; }
-/* mobil über den WhatsApp-Button der Website schieben (der sitzt unten rechts, ca. 60px hoch) */
-@media (max-width: 600px) { .ig-dm { padding-right: 8px; bottom: 92px; } .ig-dm-text { display: none; } }
+@media (max-width: 600px) { .ig-dm { padding-right: 8px; } .ig-dm-text { display: none; } }
 
 
 /* ---------- Kontakt: Schnellanfrage mit Vorlagen ---------- */

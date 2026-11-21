@@ -1028,6 +1028,8 @@ body.modal-open .ig-dm { opacity: 0; pointer-events: none; }
 .tpl:focus-visible { outline: 2px solid var(--sage); outline-offset: 2px; }
 .quick-form textarea { min-height: 84px; }
 .quick-reach { margin-top: .2rem; }
+.quick-source { display: flex; flex-wrap: wrap; gap: 10px; } /* lange Labels: Pills statt 3er-Raster */
+.quick-source span { padding: .65em 1.1em; }
 .quick-success { padding: 20px 0; }
 .quick-success p { max-width: 42ch; margin-bottom: 1.6rem; }
 @media (max-width: 960px) {
